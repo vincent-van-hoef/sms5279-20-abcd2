@@ -14,6 +14,3 @@ Welcome to SMS5279's documentation!
 
 Indices and tables
 ==================
-
-* :ref:`genindex`
-* :ref:`modindex`
