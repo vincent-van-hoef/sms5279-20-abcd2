@@ -10,7 +10,6 @@ Welcome to SMS5279's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-
-Indices and tables
-==================
+   Project Description
+   Methods
+   Results
