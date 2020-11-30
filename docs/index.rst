@@ -8,8 +8,6 @@ Welcome to SMS5279's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Table of Contents
 
-   Project Description
-   Methods
-   Results
+   /content/project_description
