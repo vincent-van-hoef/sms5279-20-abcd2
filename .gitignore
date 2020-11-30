@@ -1,0 +1,5 @@
+.DS_Build
+*.swp
+/_build
+/doctrees
+__pycache__
