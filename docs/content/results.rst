@@ -69,7 +69,7 @@ The INFO score is an important metric indicating the uncertainty in the imputed 
 
 After additional filtering of SNP with MAF < 0.001% and identical duplicates, a total of **40.637.119 variants in 10.069 individuals remained**.
 
-The data is stored on Bianca in two folders: one containing the data split up per chromosome ane contains the whole dataset in a single file.
+The data is stored on Bianca in two folders: one containing the data split up per chromosome and one containing the whole dataset in a single file.
 
 
 ::    
