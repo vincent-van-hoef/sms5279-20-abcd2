@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Material and Methods &mdash; SMS5279  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Results" href="results.html" />
+    <link rel="prev" title="Project Description" href="project_description.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SMS5279
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Material and Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quality-control">Quality Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#population-structure">Population Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imputation">Imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manuscript">Manuscript</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_responsability.html">Data Responsability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="closing.html">Closing Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SMS5279</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Material and Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/content/material_methods.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="material-and-methods">
+<span id="material-methods"></span><h1>Material and Methods<a class="headerlink" href="#material-and-methods" title="Permalink to this headline">¶</a></h1>
+<p>This is a overview of the different steps taken to clean up the data and prepare the files for imputation.</p>
+<p>Results can be found in the <a class="reference internal" href="results.html#results"><span class="std std-ref">Results</span></a> section.</p>
+<div class="section" id="quality-control">
+<h2>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this headline">¶</a></h2>
+<p>Quality control is an important step prior to imputation. Here, we used the <em>Preimputation</em> module as implemented in the imputation pipeline <a class="reference external" href="https://sites.google.com/a/broadinstitute.org/ricopili/preimputation-qc">RICOPILI</a>. This module is basically a wrapper function around PLINK to filter out SNPs and samples of lower quality. The QC thresholds used are listed below and were executed in the following order:</p>
+<ol class="arabic simple">
+<li><p>SNPs: call rate &lt; 0.95</p></li>
+<li><p>IDs: call rate &lt; 0.98</p></li>
+<li><p>IDs: FHET outside +- 0.2</p></li>
+<li><p>SNPs: call rate &lt; 0.98</p></li>
+<li><p>SNPs: with Minor Allele Frequency &lt; 0.01</p></li>
+<li><p>SNPs: Hardy-Weinberg equilibrium (HWE) &lt; 1.0e-300</p></li>
+<li><p>SNPs: sHWE &lt; 1.0e-6</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># RICOPILI has been installed on Bianca</span>
+<span class="c1"># Code to run the pre imputation QC; more info in link above</span>
+<span class="c1"># Make a QC folder and link or move the initial {bim,fam,bed} files into this folder before running following code</span>
+preimp_dir --dis cog --pop mix --out abcd2 --maf <span class="m">0</span>.01 --hwe_th_ca <span class="m">1</span>.0e-300 --hwe_th_ca <span class="m">1</span>.0e-300
+</pre></div>
+</div>
+<p>Special care was taken when it comes to detect SNP outside of HWE. HWE says that for a population meeting certain conditions, the genotype frequencies of a genetic locus can be expressed in terms of the allele frequencies. In studies such as genome-wide association studies (GWAS), HWE is treated as a baseline for quality control, where markers deviating strongly from HWE are filtered out as likely genotyping errors. Because of a strong population structure in the ABCD2 data, many SNP were found to break HWE when using standard cutoff thresholds. Therefore, a different approach was used to filter out SNPs breaking HWE (the 1.0e-300 used in the first QC run is basically equal to setting no filter). We opted for an approach called <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6827367/">sHWE</a> or “structural HWE” as implemented in the R package <a class="reference external" href="https://www.bioconductor.org/packages/release/bioc/html/lfa.html">lfa</a>. SNP were tested using a model with 7 latent variables on a 4000 sample subsample of the QCed data. After this test, SNP not passing the p-value &lt; 1.0e-6 threshold were removed as well.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demanding computation; run via SLURM or interactive session with 12 cores at least</span>
+<span class="c1"># Run in R to calculate sHWE p-values</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;lfa&quot;</span><span class="p">)</span>
+
+<span class="c1"># read the binary files (basename is name without {bim,fam,bed} extension)</span>
+<span class="n">abcd</span> <span class="o">&lt;-</span> <span class="nf">read.bed</span><span class="p">(</span><span class="n">basename</span><span class="p">)</span>
+<span class="c1"># Select random subset</span>
+<span class="n">abcd_sample</span> <span class="o">&lt;-</span> <span class="n">abcd</span><span class="p">[,</span><span class="nf">sample</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">abcd</span><span class="p">)),</span> <span class="m">4000</span><span class="p">)]</span>
+<span class="c1"># Run sHWE</span>
+<span class="n">fa</span>  <span class="o">&lt;-</span> <span class="nf">lfa</span><span class="p">(</span><span class="n">abcd_sample</span><span class="p">,</span> <span class="m">7</span><span class="p">)</span>
+<span class="n">abcd_shwe</span> <span class="o">&lt;-</span> <span class="nf">sHWE</span><span class="p">(</span><span class="n">abcd_sample</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="c1"># Write output</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">abcd_shwe</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;Iteration_single7_4000.txt&quot;</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sHWE method is computationally very demanding, so the test was run on a reduced dataset of 4000 random chosen samples.</p>
+</div>
+</div>
+<div class="section" id="population-structure">
+<h2>Population Structure<a class="headerlink" href="#population-structure" title="Permalink to this headline">¶</a></h2>
+<p>To check for outliers and population structure the <a class="reference external" href="https://sites.google.com/a/broadinstitute.org/ricopili/pca">PCA module</a> as implemented in RICOPILI was used. Prior to calculating the principal components, some additional filtering was performed:</p>
+<ul class="simple">
+<li><p>IBD &gt; 0.9 (remove duplicates/highly related samples)</p></li>
+<li><p>LD pruning: R2 &lt; 0.2</p></li>
+<li><p>MAF &lt; 0.5</p></li>
+<li><p>HWE &lt; 1.0e-03</p></li>
+<li><p>SNP missing rate &lt; 0.02</p></li>
+<li><p>no AT/GC SNPs</p></li>
+<li><p>no MHC region (Chr6:25-35Mb)</p></li>
+<li><p>no Chr8 inversion (Chr8:7-13Mb)</p></li>
+</ul>
+<p>This resulted in a cleaned up dataset that could be used as input for the PCA analysis. Custom plotting was done using the R package ggplot2.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run in folder with the QCed PLINK files; this performs the filtering and PCA</span>
+pcaer --out cog_scr_time cog_abcd2_mix_vh-qc1.bim --rel <span class="m">0</span>.9
+</pre></div>
+</div>
+</div>
+<div class="section" id="imputation">
+<h2>Imputation<a class="headerlink" href="#imputation" title="Permalink to this headline">¶</a></h2>
+<p>The imputation of the filtered and cleaned data was done using a different pipeline: <a class="reference external" href="https://github.com/Orion1618/Odyssey">Odyssey</a>. This pipeline uses SHAPEIT2 to phase the input data and then imputes using IMPUTE4. This combination of tools is computationally efficient but not available in RICOPILI, hence the switch to this pipeline. It has excellent documentation so I refer you to the <a class="reference download internal" download="" href="../_downloads/43f7bd710902ffcda6ff727634d66e9f/Odyssey_Tutorial.docx"><code class="xref download docutils literal notranslate"><span class="pre">tutorial</span></code></a> for a detailed walkthrough of the pipeline. Everything is available on Bianca for it to run again, if necessary. As a reference population, the 1,000 Genomes haplotypes – Phase 3 integrated variant set release in NCBI build 37 (hg19) coordinates were used. This is a mixed population dataset consisting of 2504 samples and 5008 haplotypes. More info and the reference itself can be found <a class="reference external" href="https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html">here</a>.</p>
+<p>Phasing was carried out per chromosome, using 35 MCMC iterations and a 100 states per window (windows of 2Mb). Imputation was carried out in chunks of 5Mb with a 250kb buffer region and an effective population size of 20000. Imputed variants in each non-overlapping part of each chunk were concatenated into per-chromosome files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One important question is how to choose a reference panel that will produce high imputation accuracy in a population of interest. The answer is seldom obvious because human populations have experienced complex demographic histories with many migration and mixture events. Consequently, it can be hard to decide which reference haplotypes should be used in a particular study. The makers of IMPUTE2/4 have proposed a simple and universal solution to this problem: provide all available reference haplotypes to IMPUTE2, then let the software choose a “custom” reference panel for each individual to be imputed. There are several advantages to this approach:</p>
+<ul class="simple">
+<li><p>Investigators do not need to waste time deciding which haplotypes to include in the reference panel.</p></li>
+<li><p>This strategy works in a variety of human populations. Researchers have used this approach to successfully impute populations ranging from homogeneous isolates to recent and complex admixtures.</p></li>
+<li><p>IMPUTE2/4 is often more accurate with an ancestrally inclusive reference panel than with a smaller panel chosen by intuition. This is because individuals from “diverged” populations may still share genomic segments of recent common ancestry, and IMPUTE2/4 can use this haplotype sharing to improve accuracy. At the same time, the software can ignore haplotypes that are not helpful.</p></li>
+</ul>
+<p>The benefits of using inclusive reference panels are greatest at low-frequency variants (MAF &lt; 5%), since these variants may be poorly represented in a reference panel from the population of interest (due to sampling effects) but well-represented in panel from a different population (e.g., due to genetic drift).</p>
+</div>
+<p>IMPUTE4 is considerably faster than IMPUTE2 but leaves out some additional quality checks. One of those is the concordance rate. This metric is calculated by masking one input variant at a time and imputing it by using the surrounding variants. The imputed genotypes can then be compared to the actual genotype seen on the array to give the concordance. This is done for each input variant resulting in an overall concordance rate. Good quality imputation should result in concordance rates around 95%. Imputation is done in chunks of 5Mb at a time (so 588 chunks in total). To reduce computation time a random selection of 25 chunks was used to calculate concordance rates using IMPUTE2. Custom plotting was done in ggplot2.</p>
+<p>QCTOOL was used to calculate the minor allele frequency (MAF) and imputation information score of each imputed variant. The imputation information is a metric between 0 and 1. A value of 1 indicates that there is no uncertainty in the imputed genotypes whereas a value of 0 means that there is complete uncertainty about the genotypes. A value of α in a sample of N individuals indicates that the amount of data at the imputed SNP is approximately equivalent to a set of perfectly observed genotype data in a sample size of α N. Many GWAS carried out to date have used filters on MAF and information score by applying a threshold on these metrics. There is no single correct threshold to use. However, as MAF decreases it is generally the case that imputation quality decreases. Previous studies have tended to use a filter on information between 0.3-0.5. An information measure of 0.3 was applied here. In ~10,000 samples this roughly corresponds to an effective sample size of ~3,000, which would be expected to yield good power to detect association. Some variants are imputed as monomorphic, or close to monomorphic i.e. no or almost no variation in the genotypes. Such sites were removed using QCTOOL using a filter on MAF of 0.001%.</p>
+</div>
+<div class="section" id="manuscript">
+<h2>Manuscript<a class="headerlink" href="#manuscript" title="Permalink to this headline">¶</a></h2>
+<p>Here an example of a Material and Methods section for a potential manuscript:</p>
+<blockquote>
+<div><p>Before imputation, SNPs were excluded if they had high levels of missing data (SNP call rate &lt; 98%), departed from Hardy-Weinberg equilibrium as calculated in the lfa R package (sHWE) (P&lt;1 x 10−6), or had minor allele frequencies (MAF) &lt;1%. Moreover, individuals with an absolute autosomal heterozygosity &gt; 0.2 or more than 2% missing genotyoes were excluded. These filtering steps resulted in a cleaned dataset of 10,069 individuals and 430,622 variants. Subsequently, haplotypes were pre-phased with SHAPEIT2. Genetic markers were imputed using the IMPUTE4 software and the 1000 Genomes References Panel (phase 3, build 37). After imputation, genotypes with an INFO score  &lt; 0.3 or a MAF &lt; 0.001% were excluded. The final number of SNPs after imputation was 40,637,119 in a total of 10,069 individuals.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="results.html" class="btn btn-neutral float-right" title="Results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="project_description.html" class="btn btn-neutral float-left" title="Project Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent van Hoef
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
