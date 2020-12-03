@@ -56,7 +56,7 @@ To check for outliers and population structure the `PCA module	<https://sites.go
 
 - IBD > 0.9 (remove duplicates/highly related samples)
 - LD pruning: R2 < 0.2
-- MAF < 0.5
+- MAF < 0.05
 - HWE < 1.0e-03
 - SNP missing rate < 0.02
 - no AT/GC SNPs
