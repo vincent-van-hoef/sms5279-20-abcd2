@@ -1,5 +1,5 @@
 ===================
-Data Responsability
+Data Responsibility
 ===================
 
 - **NBIS & Uppnex** Unfortunately, we do not have resources to keep any files associated with the support request. We suggest that you safely store the results delivered by us. In addition, we ask that you remove the files from UPPMAX/UPPNEX after analysis is completed. The main storage at UPPNEX is optimized for high-speed and parallel access, which makes it expensive and not the right place for long time archiving.
