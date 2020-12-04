@@ -9,7 +9,7 @@ More info on the methods is found in the :ref:`material_methods` section.
 Quality Control
 ===============
 
-The initial dataset consists of 10627 samples and 517724 variants. Prior to imputation, additional filtering was performed. At :numref:`FilterTable`, you can see an overview of the filtering steps and how many variants and samples were removed.
+The initial dataset consists of 10627 samples and 517724 variants. Prior to imputation, additional filtering was performed to remove lower quality SNP and samples. At :numref:`FilterTable`, you can see an overview of the filtering steps and how many variants and samples were removed.
 
 .. list-table:: Overview of Filtering steps and removed SNP and Samples. 
     :name: FilterTable
@@ -18,7 +18,7 @@ The initial dataset consists of 10627 samples and 517724 variants. Prior to impu
     :align: center
 
     * - Filter
-      - N 
+      - # of removed SNP/Samples 
     * - SNP call rate < 0.95
       - 140
     * - ID call rate < 0.98
@@ -34,7 +34,7 @@ The initial dataset consists of 10627 samples and 517724 variants. Prior to impu
     * - SNP sHWE < 1.0e-6
       - 11361
 
-After removing unidentified, duplicated SNP as well, a dataset consisting of 10069 samples and 430622 variants remains as input for the imputation step. 
+After the filter steps, a dataset consisting of 10069 samples and 430622 variants remains as input for the imputation step. 
 
 .. note:: 
     There is a small discrepancy of around 5000 SNP between the number of filtered SNP and the remaining SNP for imputation. This is a consequence of the --exclude function in PLINK which removes listed variants AND all of their duplicates. There are quite some duplicate IDs in the original dataset called "Physical.Position_X_X" which are counted once for filtering while all of the duplicates are removed during the subsetting resulting in a slightly lower number of remaining SNP.
@@ -42,7 +42,7 @@ After removing unidentified, duplicated SNP as well, a dataset consisting of 100
 Population structure
 ====================
 
-To check for population structure a `PCA <https://builtin.com/data-science/step-step-explanation-principal-component-analysis>`_ was performed (see :numref:`pcaplot`). This shows that - as expected - samples group more or less according to their ancestry. This will influence the HWE p-values strongly and highlights the need for the alternative HWE calculation used in the project.
+To check for population structure a `PCA <https://builtin.com/data-science/step-step-explanation-principal-component-analysis>`_ was performed (see :numref:`pcaplot`). PCA helps us to identify patterns in data based on the correlation between features. In a nutshell, PCA aims to find the directions of maximum variance in high-dimensional data and projects it onto a new subspace with equal or fewer dimensions than the original one. It is often used as a visualization method where more similar data points will cluster together. In this dataset, PCA shows that - as expected - samples group more or less according to their ancestry. This will influence the HWE p-values strongly and highlights the need for the alternative HWE calculation used in the project.
 
 .. figure:: /_static/PCA_plot.png
     :name: pcaplot
@@ -53,7 +53,7 @@ To check for population structure a `PCA <https://builtin.com/data-science/step-
 Imputation
 ==========
 
-Imputation resulted in 81.699.844 SNP in total prior to any quality control. Overall concordance rate were calculated for a random sample of 25 "chunks" using IMPUTE2. This is the result of an internal cross-validation that the program performs automatically. For this analysis, IMPUTE2 masks the genotypes of one variant at a time in the study data, then imputes the masked genotypes with information from the reference data and nearby study variants. The imputed genotypes are then compared with the original genotypes to evaluate the quality of the imputation. This number should typically be around 95%; it may be lower in certain populations or regions of the genome, but if it is much lower then you may need to double-check the analysis. Overall concordances for the 25 random chunks are shown in :numref:`concordance`. For most chunks, the overall concordance rate is around 95% or higher.
+Imputation using IMPUTE4 and the 1000 Genomes, phase 3 reference dataset resulted in 81.699.844 SNP in total, prior to any quality control. Overall concordance rate were calculated for a random sample of 25 "chunks" using IMPUTE2. This metric is the result of an internal cross-validation that the program performs automatically. For this analysis, IMPUTE2 masks the genotypes of one variant at a time in the study data, then imputes the masked genotypes with information from the reference data and nearby study variants. The imputed genotypes are then compared with the original genotypes to evaluate the quality of the imputation. This number should typically be around 95%; it may be lower in certain populations or regions of the genome, but if it is much lower then you may need to double-check the analysis. Overall concordances for the 25 random chunks are shown in :numref:`concordance`. For most chunks, the overall concordance rate is around 95% or higher.
 
 .. figure:: /_static/concordance.png
     :name: concordance
@@ -67,7 +67,7 @@ The INFO score is an important metric indicating the uncertainty in the imputed 
 
     Histogram of the INFO scores of Chromosome 1. Threshold value indicated in red.
 
-After additional filtering of SNP with MAF < 0.001% and identical duplicates, a total of **40.637.119 variants in 10.069 individuals remained**.
+After additional filtering of SNP with MAF < 0.0001 and identical duplicates, a total of **40.637.119 variants in 10.069 individuals remained**.
 
 The data is stored on Bianca in two folders: one containing the data split up per chromosome and one containing the whole dataset in a single file.
 

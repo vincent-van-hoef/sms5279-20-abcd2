@@ -28,7 +28,18 @@ Report for Project #5279
    /content/data_responsibility
    /content/closing
 
-This report described the analysis of project #5279 in several sections. :doc:`/content/project_description` contains a description of the projects and a summary of the requested and agreed upon analyses. :doc:`/content/material_methods` gives an overview of the material and methods used during the project. :doc:`/content/results` contains an overview of the results of the quality control and imputation results. Figures can be download with a mouse right-click and "Download as".
+| **Principal Investigator:** Torkel Klingberg
+| **Contact:** Bruno Sauce
+
+**Organization:** KI
+
+This report described the analysis of project #5279. It is divided in several sections. 
+
+- :doc:`/content/project_description` contains a description of the projects as requested by the User and a summary of the agreed upon analyses. 
+- :doc:`/content/material_methods` gives an overview of the material and methods used during the project. 
+- :doc:`/content/results` contains an overview of the results of the quality control and imputation results. 
+
+Figures can be download with a mouse right-click and "Download as".
 
 .. warning::
 
